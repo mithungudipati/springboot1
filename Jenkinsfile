@@ -24,6 +24,9 @@ pipeline {
                 // failed, record the test results and archive the jar file.
                 success {
                     archiveArtifacts 'target/*.jar'
+		    steps{
+			sh "docker build -t mithungudipati/new-test:$BUILD_NUMBER"
+		    }
                 }
             }
         }
