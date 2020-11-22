@@ -25,7 +25,7 @@ pipeline {
                 success {
                     archiveArtifacts 'target/*.jar'
 		   // steps{
-		//	sh "docker build -t mithungudipati/new-test:$BUILD_NUMBER"
+		//	sh "docker build -t mithungudipati/new-test:$BUILD_NUMBER ."
 		  //  }
                 }
             }
