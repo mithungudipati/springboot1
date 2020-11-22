@@ -14,7 +14,7 @@ pipeline {
 
                 // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
-
+                sh "docker build -t mithungudipati/new-test:$BUILD_NUMBER"
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
@@ -24,9 +24,9 @@ pipeline {
                 // failed, record the test results and archive the jar file.
                 success {
                     archiveArtifacts 'target/*.jar'
-		    steps{
-			sh "docker build -t mithungudipati/new-test:$BUILD_NUMBER"
-		    }
+		   // steps{
+		//	sh "docker build -t mithungudipati/new-test:$BUILD_NUMBER"
+		  //  }
                 }
             }
         }
